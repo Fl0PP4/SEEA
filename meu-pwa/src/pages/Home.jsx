@@ -1,38 +1,71 @@
 import "./home.css";
 
 export default function Home() {
+  const offers = [
+    {
+      id: 1,
+      name: "Camarão Rosa Grande",
+      price: "89,90",
+      unit: "kg",
+      image: "https://source.unsplash.com/random/600x400/?shrimp,fresh,seafood",
+      distance: "2,3 km"
+    },
+    {
+      id: 2,
+      name: "Filé de Merluza Fresco",
+      price: "45,90",
+      unit: "kg",
+      image: "https://source.unsplash.com/random/600x400/?fish,fillet,fresh",
+      distance: "4,1 km"
+    },
+    {
+      id: 3,
+      name: "Ostras Frescas",
+      price: "68,00",
+      unit: "dúzia",
+      image: "https://source.unsplash.com/random/600x400/?oysters,seafood",
+      distance: "1,8 km"
+    }
+  ];
+
+  const categories = [
+    { name: "Camarões", image: "https://source.unsplash.com/random/300x300/?shrimp" },
+    { name: "Peixes", image: "https://source.unsplash.com/random/300x300/?fresh-fish" },
+    { name: "Ostras", image: "https://source.unsplash.com/random/300x300/?oysters" },
+    { name: "Crustáceos", image: "https://source.unsplash.com/random/300x300/?crab,seafood" },
+    { name: "Moluscos", image: "https://source.unsplash.com/random/300x300/?mussels" },
+    { name: "Congelados", image: "https://source.unsplash.com/random/300x300/?frozen-seafood" }
+  ];
 
   return (
-     <div className="home-container">
+    <div className="home-container">
       <header className="home-header">
-      <div className="home-content">
-        <div className="home-logo">
-          <span className="fish-icon">Fish</span>
-        <h1>MarMarket</h1>
+        <div className="home-content">
+          <div className="home-logo">
+            <span className="fish-icon">🌊</span>
+            <h1>SEEA</h1>
+          </div>
+          <div className="location">
+            <span className="location-icon">📍</span>
+            <span>Florianópolis, SC</span>
+          </div>
+          <div className="header-icons">
+            <button className="icon-btn">
+              <i className="fas fa-bell"></i>
+            </button>
+            <button className="icon-btn cart-btn">
+              <i className="fas fa-shopping-cart"></i>
+              <span className="cart-count">3</span>
+            </button>
+            <button className="profile-btn">👤</button>
+          </div>
         </div>
-
-        <div className="location">
-          <span className="location-icon"></span>
-          <span>São Paulo, SP</span>
-        </div>
-
-        <div className="header-icons">
-          <button className="icon-btn">
-            <i className="fas fa-bell"></i>
-          </button>
-          <button className="icon-btn cart-btn">
-            <i className="fas fa-shopping-cart"></i>
-            <span className="cart-count">3</span>
-          </button>
-          <button className="profile-btn"></button>
-        </div>
-      </div>
       </header>
 
       <div className="search-container">
         <input
           type="text"
-          placeholder="Buscar camarão, peixe, ostras, lula..."
+          placeholder="Buscar produtos, produtores ou categorias..."
           className="search-input"
         />
         <button className="search-btn">Buscar</button>
@@ -44,10 +77,11 @@ export default function Home() {
           <div className="cert-badges">
             <span className="badge">MSC</span>
             <span className="badge">ASC</span>
+            <span className="badge">CSI</span>
           </div>
-          <h2>Frutos do mar realmente frescos</h2>
-          <p>Direto dos produtores • Rastreabilidade • Sustentabilidade</p>
-          <button className="banner-btn">Ver ofertas do dia</button>
+          <h2>Frutos do mar frescos e sustentáveis</h2>
+          <p>Direto dos produtores • Rastreabilidade garantida • Entrega rápida</p>
+          <button className="banner-btn">Explorar ofertas do dia</button>
         </div>
       </div>
 
@@ -65,7 +99,7 @@ export default function Home() {
             </div>
           </div>
           <div className="cert-card">
-            <span className="emoji"></span>
+            <span className="emoji">🦐</span>
             <div>
               <strong>ASC</strong>
               <p>Aquicultura Responsável</p>
@@ -103,10 +137,10 @@ export default function Home() {
       <section className="section">
         <h3 className="section-title">Categorias</h3>
         <div className="categories-grid">
-          {['Camarões', 'Peixes', 'Ostras', 'Crustáceos', 'Moluscos', 'Congelados'].map((cat, i) => (
+          {categories.map((cat, i) => (
             <div key={i} className="category-card">
-              <span className="cat-emoji">{['🦐', '🐟', '🦪', '🦀', '🐙', '❄️'][i]}</span>
-              <p>{cat}</p>
+              <img src={cat.image} alt={cat.name} className="category-image" />
+              <p>{cat.name}</p>
             </div>
           ))}
         </div>
@@ -114,15 +148,11 @@ export default function Home() {
 
       {/* OFERTAS DO DIA */}
       <section className="section">
-        <h3 className="section-title">Ofertas do Dia </h3>
+        <h3 className="section-title">Ofertas do Dia</h3>
         <div className="offers-grid">
-          {[
-            { id: 1, name: "Camarão Rosa Grande", price: "89,90", unit: "kg", emoji: "🦐", distance: "2.3 km" },
-            { id: 2, name: "Filé de Merluza Fresco", price: "45,90", unit: "kg", emoji: "🐟", distance: "4.1 km" },
-            { id: 3, name: "Ostras Frescas", price: "68,00", unit: "dúzia", emoji: "🦪", distance: "1.8 km" }
-          ].map((item) => (
+          {offers.map((item) => (
             <div key={item.id} className="offer-card">
-              <div className="offer-image">{item.emoji}</div>
+              <img src={item.image} alt={item.name} className="offer-image" />
               <div className="offer-info">
                 <h4>{item.name}</h4>
                 <p className="distance">{item.distance} • Entrega hoje</p>
@@ -136,7 +166,5 @@ export default function Home() {
         </div>
       </section>
     </div>
-          
-         
   );
-}
+}SignalMedium
