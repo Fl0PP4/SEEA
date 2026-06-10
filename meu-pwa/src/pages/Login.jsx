@@ -10,7 +10,7 @@ export default function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
     console.log({ email, senha });
-    // Aqui você vai conectar com o backend depois
+    
     navigate("/home");
   };
 

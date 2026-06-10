@@ -167,4 +167,4 @@ export default function Home() {
       </section>
     </div>
   );
-}SignalMedium
+}
