@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom'
 registerSW({ immediate: true })
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/SEEA/">
     <App />
   </BrowserRouter>
 )
