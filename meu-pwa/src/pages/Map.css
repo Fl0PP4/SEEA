@@ -1,0 +1,118 @@
+.map-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f8fafc;
+}
+
+.map-header {
+  padding: 1.2rem 1.5rem;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  z-index: 10;
+}
+
+.map-header h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.5rem;
+}
+
+.map-header p {
+  margin: 4px 0 0;
+  color: #64748b;
+}
+
+.map-container {
+  flex: 1;
+  position: relative;
+}
+
+/* Painel lateral com informações */
+.seller-detail-panel {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+  max-width: 380px;
+  z-index: 1000;
+}
+
+.close-panel {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #64748b;
+  z-index: 10;
+}
+
+.seller-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+.seller-detail-panel h3 {
+  margin: 0 0 8px;
+  color: #0f172a;
+}
+
+.rating {
+  color: #eab308;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.address {
+  color: #64748b;
+  margin-bottom: 16px;
+}
+
+.products {
+  margin: 16px 0;
+  padding: 12px 0;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.98rem;
+}
+
+.contact-btn, .buy-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.contact-btn {
+  background: white;
+  color: #1e40af;
+  border: 2px solid #1e40af;
+}
+
+.buy-btn {
+  background: #1e40af;
+  color: white;
+  border: none;
+}
+
+.contact-btn:hover {
+  background: #f8fafc;
+}
+
+.buy-btn:hover {
+  background: #1e3a8a;
+}
