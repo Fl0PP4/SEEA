@@ -247,6 +247,22 @@
   text-align: center;
   color: #1e40af;
 }
+.map-link {
+  background: #1e40af;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+ 
+.map-link:hover {
+  background: #1e3a8a;
+  transform: translateY(-1px);
+}
 
 /* ================== CATEGORIAS ================== */
 .categories-grid {

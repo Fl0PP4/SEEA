@@ -1,6 +1,8 @@
 import "./home.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const navigate = useNavigate();
   const offers = [
     {
       id: 1,
