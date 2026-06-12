@@ -13,6 +13,34 @@
   z-index: 10;
 }
 
+.map-header-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.back-btn {
+  background: #1e40af;
+  border: none;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: white;
+  font-weight: 700;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  transition: background-color 0.2s, transform 0.2s;
+  max-width: 8rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-btn:hover {
+  background-color: #1e3a8a;
+  transform: translateX(-1px);
+}
+
 .map-header h2 {
   margin: 0;
   color: #0f172a;
@@ -37,7 +65,7 @@
   right: 20px;
   background: white;
   border-radius: 20px;
-  padding: 20px;
+  padding: 8px 20px 20px 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
   max-width: 380px;
   z-index: 1000;
@@ -45,14 +73,27 @@
 
 .close-panel {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  background: none;
+  top: 16px;
+  right: 16px;
+  background: #f1f5f9;
   border: none;
-  font-size: 1.6rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 1.2rem;
   cursor: pointer;
-  color: #64748b;
+  color: #0f172a;
   z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  padding: 0;
+}
+
+.close-panel:hover {
+  background: #e2e8f0;
+  transform: scale(1.1);
 }
 
 .seller-image {
@@ -61,6 +102,7 @@
   object-fit: cover;
   border-radius: 16px;
   margin-bottom: 16px;
+  margin-top: 12px;
 }
 
 .seller-detail-panel h3 {

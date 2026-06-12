@@ -121,7 +121,7 @@ export default function Home() {
       <section className="section">
         <div className="map-header">
           <h3>Vendedores próximos</h3>
-          <button className="map-link">Ver mapa completo →</button>
+          <button className="map-link" onClick={() => navigate("/map")}>Ver mapa completo →</button>
         </div>
         <div className="mini-map">
           <div className="map-placeholder">
