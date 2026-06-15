@@ -1,43 +1,19 @@
 import "./home.css";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { getProducts, getCategories, getSellers } from "../services/api";
 
 export default function Home() {
   const navigate = useNavigate();
-  const offers = [
-    {
-      id: 1,
-      name: "Camarão Rosa Grande",
-      price: "89,90",
-      unit: "kg",
-      image: "https://source.unsplash.com/random/600x400/?shrimp,fresh,seafood",
-      distance: "2,3 km"
-    },
-    {
-      id: 2,
-      name: "Filé de Merluza Fresco",
-      price: "45,90",
-      unit: "kg",
-      image: "https://source.unsplash.com/random/600x400/?fish,fillet,fresh",
-      distance: "4,1 km"
-    },
-    {
-      id: 3,
-      name: "Ostras Frescas",
-      price: "68,00",
-      unit: "dúzia",
-      image: "https://source.unsplash.com/random/600x400/?oysters,seafood",
-      distance: "1,8 km"
-    }
-  ];
+  const [offers, setOffers] = useState([]);
+  const [categories] = useState(getCategories());
+  const [sellerCount, setSellerCount] = useState(0);
 
-  const categories = [
-    { name: "Camarões", image: "https://source.unsplash.com/random/300x300/?shrimp" },
-    { name: "Peixes", image: "https://source.unsplash.com/random/300x300/?fresh-fish" },
-    { name: "Ostras", image: "https://source.unsplash.com/random/300x300/?oysters" },
-    { name: "Crustáceos", image: "https://source.unsplash.com/random/300x300/?crab,seafood" },
-    { name: "Moluscos", image: "https://source.unsplash.com/random/300x300/?mussels" },
-    { name: "Congelados", image: "https://source.unsplash.com/random/300x300/?frozen-seafood" }
-  ];
+  useEffect(() => {
+    getProducts().then(data => setOffers(data || []));
+    getSellers().then(data => setSellerCount((data || []).length));
+  }, []);
+
 
   return (
     <div className="home-container">
@@ -126,7 +102,7 @@ export default function Home() {
         <div className="mini-map">
           <div className="map-placeholder">
             <i className="fas fa-map fa-5x text-gray-300"></i>
-            <p>14 vendedores em um raio de 12km</p>
+            <p>{sellerCount} vendedores em um raio de 12km</p>
             <div className="map-pins">
               <span className="pin green"></span>
               <span className="pin blue"></span>
